@@ -1,0 +1,33 @@
+<div class="post-box">
+    <div class="post">
+        <h4 data-bind="text: Owner"></h4>
+        <p class="time" data-bind="text: PostDate"></p>
+        <p data-bind="text: Content"></p>
+        <div class="like-area">
+            <button class="like-button" data-bind="click: LikePost, css: IsPostLikeable">Like</button>
+            <p class="like-counter" data-bind="text: LikeCount, visible: LikeCountVisible"></p>
+        </div>
+    </div>
+    <div class="comment-box">
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="new-comment-box">
+                <textarea class="new-comment-textarea" data-bind="value: NewComment, wordCountLimiter: 300, valueUpdate: 'afterkeydown'" placeholder=" Comment..."></textarea>
+                <button class="comment-button" data-bind="click: CreateComment">Comment</button>
+                <p class="text-counter" data-bind="text: TextCounter"></p>
+                <p class="text-counter-text">words remaining</p>
+            </div>
+        }
+        <div id="commentList" data-bind="foreach: Comments">
+            <div class="comment">
+                <p data-bind="text: CommentOwner"></p>
+                <p class="time" data-bind="text: CommentPostDate"></p>
+                <p data-bind="text: CommentContent"></p>
+                <div class="like-area">
+                    <button class="like-button" data-bind="click: LikeComment, css: IsCommentLikeable">Like</button>
+                    <p class="like-counter" data-bind="text: CommentLikeCount, visible: LikeCountVisible"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

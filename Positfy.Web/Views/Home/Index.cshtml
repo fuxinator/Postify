@@ -1,0 +1,18 @@
+@{
+    ViewData["Title"] = "Postify";
+}
+<div class="body-content">
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="new-post-box">
+            @await Html.PartialAsync("_NewPostBoxPartial")
+        </div>
+    }
+    <div id="postList" data-bind="foreach: Posts">
+        @await Html.PartialAsync("_PostList")
+    </div>
+    <button id="btnLoadMore" data-bind="click: LoadMore">Load more</button>
+</div>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/knockout/dist/knockout.js"></script>
+<script src="~/js/home.js" asp-append-version="true"></script>

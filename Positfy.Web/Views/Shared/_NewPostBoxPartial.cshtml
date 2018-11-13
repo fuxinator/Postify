@@ -1,0 +1,8 @@
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<textarea class="new-post-textarea" data-bind="value: NewPost, wordCountLimiter: 300, valueUpdate: 'afterkeydown'" placeholder=" Post..."></textarea>
+<button class="new-post-submit-button" data-bind="click: CreatePost">Submit</button>
+<p class="text-counter" data-bind="text: TextCounter"></p>
+<p class="text-counter-text">words remaining</p>
